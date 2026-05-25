@@ -1,0 +1,6 @@
+{
+  "name": "아침엔사과와땅콩버터 Q&A",
+  "description": "제작자 아침엔사과와땅콩버터님의 공식 Q&A 인터뷰 페이지입니다.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
