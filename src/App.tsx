@@ -61,7 +61,7 @@ const qaData = [
         ]
       },
       {
-        q: "Q. IF / AU(평행세계)물을 제작하실 계획이 있으신가요?",
+        q: "Q. IF / AU물을 제작하실 계획이 있으신가요?",
         answers: [
           "⤷ IF물은 미정이지만, **AU물은 확실히 계획 중**에 있습니다. 과거 '여름의 미토스'가 밝은 양기 캐릭터들의 AU였다면, 이번에는 **음기 캐릭터들의 매운맛 AU**를 구상하고 있어요. 축축하고 기분 나쁜 공포물 분위기 50%, 그리고 세계관이 웅장해서 가볍게 즐기기 좋은 SF·판타지 분위기 50% 사이에서 조율 중입니다."
         ]
@@ -145,13 +145,13 @@ const FormattedText = ({ text }: { text: string }) => {
   const parts = text.split(/(\*\*.*?\*\*|\*.*?\*|⤷)/g);
   return (
     <p 
-      className="text-stone-700 leading-[1.75] text-lg md:text-[19px] lg:text-[21px] font-medium"
+      className="text-stone-700 leading-[1.75] text-[27px] md:text-[29px] lg:text-[32px] font-medium"
       style={{ wordBreak: 'keep-all' }}
     >
       {parts.map((part, i) => {
         if (part === '⤷') {
           return (
-            <span key={i} className="text-emerald-600 font-extrabold mr-1.5 inline-block">
+            <span key={i} className="text-emerald-600 font-extrabold mr-3 inline-block">
               {part}
             </span>
           );
@@ -165,7 +165,7 @@ const FormattedText = ({ text }: { text: string }) => {
         }
         if (part.startsWith('*') && part.endsWith('*')) {
           return (
-            <em key={i} className="italic font-bold text-stone-800 bg-emerald-50 px-1 rounded mx-0.5">
+            <em key={i} className="italic font-bold text-stone-800 bg-emerald-50 px-3 rounded-md mx-1">
               {part.slice(1, -1)}
             </em>
           );
@@ -180,13 +180,13 @@ const FormattedQuestion = ({ text }: { text: string }) => {
   const parts = text.split(/^(Q\.)/g);
   return (
     <h3 
-      className="text-xl md:text-2xl lg:text-[26px] font-bold text-stone-900 tracking-tight leading-snug break-keep"
+      className="text-[30px] md:text-[36px] lg:text-[39px] font-bold text-stone-900 tracking-tight leading-snug break-keep"
       style={{ wordBreak: 'keep-all' }}
     >
       {parts.map((part, i) => {
         if (part === 'Q.') {
           return (
-            <span key={i} className="text-rose-600 font-extrabold mr-1.5">
+            <span key={i} className="text-rose-600 font-extrabold mr-3">
               {part}
             </span>
           );
@@ -208,17 +208,17 @@ export default function App() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-16 md:mb-24"
         >
-          <div className="inline-flex items-center justify-center p-4 bg-white shadow-sm border border-stone-100 rounded-full mb-6 relative">
-             <span className="text-3xl md:text-4xl absolute rotate-[-15deg] -left-2 -top-2">🍎</span>
-             <span className="text-3xl md:text-4xl">🥜</span>
+          <div className="inline-flex items-center justify-center p-6 bg-white shadow-sm border border-stone-100 rounded-[2rem] mb-8 relative">
+             <span className="text-[3rem] md:text-[3.75rem] absolute rotate-[-15deg] -left-6 -top-6 z-10 drop-shadow-md">🍎</span>
+             <span className="text-[3rem] md:text-[3.75rem]">🥜</span>
           </div>
-          <h1 className="text-5xl md:text-[3.5rem] leading-tight font-extrabold text-stone-900 tracking-tight mb-4">
+          <h1 className="text-[3rem] md:text-[4.5rem] leading-tight font-extrabold text-stone-900 tracking-tight mb-6">
             <span className="text-rose-600">아침엔</span>
             <span className="text-emerald-700">사과와</span>
             <span className="text-stone-800">땅콩버터</span> 
-            <span className="ml-2 font-black text-rose-500">Q&A</span>
+            <span className="ml-2 md:ml-4 font-black text-rose-500">Q&A</span>
           </h1>
-          <p className="text-stone-500 font-medium text-lg md:text-xl">제작부터 작품의 비하인드까지</p>
+          <p className="text-stone-500 font-medium text-[18px] md:text-[24px]">제작부터 작품의 비하인드까지</p>
         </motion.div>
 
         {/* Q&A Content */}
@@ -231,24 +231,24 @@ export default function App() {
               transition={{ delay: sectionIndex * 0.1 + 0.1 }}
               className="bg-white rounded-3xl shadow-[0_4px_30px_-6px_rgba(0,0,0,0.03)] border border-[#F4EFEA] p-6 md:p-10"
             >
-              <div className="flex items-center gap-3 mb-8 pb-5 border-b border-stone-100">
-                <div className="w-3 h-8 bg-emerald-500 rounded-full"></div>
-                <h2 className="text-3xl md:text-4xl font-extrabold text-stone-900 tracking-tight">
+              <div className="flex items-center gap-4 mb-8 pb-5 border-b-2 border-stone-100">
+                <div className="w-3 h-10 bg-emerald-500 rounded-full"></div>
+                <h2 className="text-[36px] md:text-[42px] font-extrabold text-stone-900 tracking-tight">
                   {category.category}
                 </h2>
               </div>
               
-              <div className="space-y-10">
+              <div className="space-y-12">
                 {category.items.map((item, idx) => (
                   <div key={idx} className="group">
-                    <div className="mb-3">
+                    <div className="mb-4">
                       <FormattedQuestion text={item.q} />
                     </div>
-                    <div className="space-y-3">
+                    <div className="space-y-4">
                       {item.answers.map((ans, aIdx) => (
                         <div 
                           key={aIdx} 
-                          className="pl-0.5"
+                          className="pl-1"
                         >
                           <FormattedText text={ans} />
                         </div>
@@ -266,7 +266,7 @@ export default function App() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
-          className="mt-20 text-center text-stone-400 text-sm font-medium"
+          className="mt-20 text-center text-stone-400 text-[15px] font-medium"
         >
           © 아침엔사과와땅콩버터 All rights reserved.
         </motion.footer>
